@@ -60,7 +60,7 @@ dependencies = [
  "alloy-serde",
  "auto_impl",
  "c-kzg",
- "derive_more",
+ "derive_more 1.0.0",
  "serde",
 ]
 
@@ -115,7 +115,7 @@ dependencies = [
  "alloy-rlp",
  "alloy-serde",
  "c-kzg",
- "derive_more",
+ "derive_more 1.0.0",
  "once_cell",
  "serde",
  "sha2",
@@ -219,7 +219,7 @@ dependencies = [
  "bytes",
  "cfg-if",
  "const-hex",
- "derive_more",
+ "derive_more 1.0.0",
  "foldhash",
  "hashbrown 0.15.0",
  "hex-literal",
@@ -230,7 +230,7 @@ dependencies = [
  "paste",
  "proptest",
  "rand",
- "ruint",
+ "ruint 1.12.3",
  "rustc-hash",
  "serde",
  "sha3",
@@ -408,7 +408,7 @@ dependencies = [
  "alloy-primitives",
  "alloy-rlp",
  "alloy-serde",
- "derive_more",
+ "derive_more 1.0.0",
  "serde",
  "strum",
 ]
@@ -426,7 +426,7 @@ dependencies = [
  "alloy-rlp",
  "alloy-serde",
  "alloy-sol-types",
- "derive_more",
+ "derive_more 1.0.0",
  "itertools 0.13.0",
  "serde",
  "serde_json",
@@ -663,7 +663,7 @@ dependencies = [
  "alloy-primitives",
  "alloy-rlp",
  "arrayvec",
- "derive_more",
+ "derive_more 1.0.0",
  "nybbles",
  "smallvec",
  "tracing",
@@ -891,6 +891,26 @@ dependencies = [
 ]
 
 [[package]]
+name = "base-primitives"
+version = "0.7.0"
+source = "git+https://github.com/core-coin/base-rs#89b7bc0be08f90a71d952c5d56d940c5bb6d8c0f"
+dependencies = [
+ "alloy-rlp",
+ "bytes",
+ "cfg-if",
+ "const-hex",
+ "derive_more 0.99.18",
+ "hex-literal",
+ "itoa",
+ "libgoldilocks",
+ "proptest",
+ "rand",
+ "ruint 1.12.2",
+ "serde",
+ "tiny-keccak",
+]
+
+[[package]]
 name = "base16ct"
 version = "0.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1058,6 +1078,12 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "c2459377285ad874054d797f3ccebf984978aa39129f6eafde5cdc8315b612f8"
 
 [[package]]
+name = "convert_case"
+version = "0.4.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "6245d59a3e82a7fc217c5828a6692dbc6dfb63a0c8c90495621f7b9d79704a0e"
+
+[[package]]
 name = "core-foundation-sys"
 version = "0.8.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1100,6 +1126,7 @@ dependencies = [
  "alloy-transport-ipc",
  "alloy-transport-ws",
  "alloy-trie",
+ "base-primitives",
  "itoa",
  "libgoldilocks",
  "tiny-keccak",
@@ -1232,6 +1259,19 @@ dependencies = [
  "proc-macro2",
  "quote",
  "syn 1.0.109",
+]
+
+[[package]]
+name = "derive_more"
+version = "0.99.18"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "5f33878137e4dafd7fa914ad4e259e18a4e8e532b9617a2d0150262bf53abfce"
+dependencies = [
+ "convert_case",
+ "proc-macro2",
+ "quote",
+ "rustc_version 0.4.1",
+ "syn 2.0.82",
 ]
 
 [[package]]
@@ -2482,6 +2522,29 @@ dependencies = [
 
 [[package]]
 name = "ruint"
+version = "1.12.2"
+source = "git+https://github.com/Kuly14/uint.git#a471247231fb197e7679de19c85a80e949432f4b"
+dependencies = [
+ "alloy-rlp",
+ "ark-ff 0.3.0",
+ "ark-ff 0.4.2",
+ "bytes",
+ "fastrlp",
+ "num-bigint",
+ "num-traits",
+ "parity-scale-codec",
+ "primitive-types",
+ "proptest",
+ "rand",
+ "rlp",
+ "ruint-macro 1.2.0",
+ "serde",
+ "valuable",
+ "zeroize",
+]
+
+[[package]]
+name = "ruint"
 version = "1.12.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "2c3cc4c2511671f327125da14133d0c5c5d137f006a1017a16f557bc85b16286"
@@ -2498,11 +2561,16 @@ dependencies = [
  "proptest",
  "rand",
  "rlp",
- "ruint-macro",
+ "ruint-macro 1.2.1",
  "serde",
  "valuable",
  "zeroize",
 ]
+
+[[package]]
+name = "ruint-macro"
+version = "1.2.0"
+source = "git+https://github.com/Kuly14/uint.git#a471247231fb197e7679de19c85a80e949432f4b"
 
 [[package]]
 name = "ruint-macro"
